@@ -7,8 +7,20 @@ const app = express();
 // Set up database conection
 let mongoDB = 'mongodb://127.0.0.1:27017/cataluz'
 mongoose.connect(mongoDB);
-mongoose.Promise = global.Promise;
 let db = mongoose.connection;
+
+
+// Models
+
+let Schema = mongoose.Schema;
+
+let categorySchema = new Schema({
+    code: Number,
+    name: String,
+});
+
+let Category = mongoose.model('Category', categorySchema);
+
 
 // Middleware
 
@@ -19,6 +31,9 @@ app.use(bodyParser.urlencoded({ extended: true })); // soporte para bodies codif
 //Ejemplo: GET http://localhost:8080/items
 app.get('/categories', function(req, res, next) {
     res.send('Get categories');
+    Category.find({}, function (err, categories) {
+        res.send(categories); 
+    });
 });
 
 //Bind connection to error event (to get notification of connection errors)
