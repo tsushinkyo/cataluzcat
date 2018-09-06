@@ -29,8 +29,13 @@ declare global {
       'last': string;
     }
 
+    interface CzCategoryContainer {
+      'image': string;
+      'name': string;
+    }
+
     interface CzCategory {
-      'first': string;
+      'image': string;
       'name': string;
     }
   }
@@ -41,6 +46,14 @@ declare global {
     var HTMLCzCardElement: {
       prototype: HTMLCzCardElement;
       new (): HTMLCzCardElement;
+    };
+    
+
+    interface HTMLCzCategoryContainerElement extends StencilComponents.CzCategoryContainer, HTMLStencilElement {}
+
+    var HTMLCzCategoryContainerElement: {
+      prototype: HTMLCzCategoryContainerElement;
+      new (): HTMLCzCategoryContainerElement;
     };
     
 
@@ -56,6 +69,7 @@ declare global {
     interface Element {}
     export interface IntrinsicElements {
     'cz-card': JSXElements.CzCardAttributes;
+    'cz-category-container': JSXElements.CzCategoryContainerAttributes;
     'cz-category': JSXElements.CzCategoryAttributes;
     }
   }
@@ -67,19 +81,26 @@ declare global {
       'last'?: string;
     }
 
+    export interface CzCategoryContainerAttributes extends HTMLAttributes {
+      'image'?: string;
+      'name'?: string;
+    }
+
     export interface CzCategoryAttributes extends HTMLAttributes {
-      'first'?: string;
+      'image'?: string;
       'name'?: string;
     }
   }
 
   interface HTMLElementTagNameMap {
     'cz-card': HTMLCzCardElement
+    'cz-category-container': HTMLCzCategoryContainerElement
     'cz-category': HTMLCzCategoryElement
   }
 
   interface ElementTagNameMap {
     'cz-card': HTMLCzCardElement;
+    'cz-category-container': HTMLCzCategoryContainerElement;
     'cz-category': HTMLCzCategoryElement;
   }
 }

@@ -7,14 +7,21 @@ import { Component, Prop } from '@stencil/core';
 })
 export class Category {
 
-  @Prop() first: string;
-  @Prop() name: string;
+  @Prop() name: string = '';
+  @Prop() image: string = '';
 
   render() {
     return (
       <div class="category-card">
-        {this.name}
+        <div>
+          <img class="image" src={this.image} />
+        </div>
+        <div>
+          {this.name}
+        </div>
       </div>
+
+      
     );
   }
 }

@@ -21,20 +21,20 @@ describe('cz-category', () => {
       expect(element.textContent.trim()).toEqual('Hello, World! I\'m');
     });
 
-    it('should work with a first name', async () => {
-      element.first = 'Peter';
+    it('should work with an icon', async () => {
+      element.image = 'https://www.fadata.eu/wp-content/uploads/2012/10/icon-insis-life.png';
       await testWindow.flush();
       expect(element.textContent.trim()).toEqual('Hello, World! I\'m Peter');
     });
 
-    it('should work with a last name', async () => {
-      element.name = 'Parker';
+    it('should work with a category name', async () => {
+      element.name = 'Life';
       await testWindow.flush();
       expect(element.textContent.trim()).toEqual('Hello, World! I\'m  Parker');
     });
 
-    it('should work with both a first and a last name', async () => {
-      element.first = 'Peter';
+    it('should work with both an icon and name', async () => {
+      element.image = 'https://www.fadata.eu/wp-content/uploads/2012/10/icon-insis-life.png';
       element.name = 'Parker';
       await testWindow.flush();
       expect(element.textContent.trim()).toEqual('Hello, World! I\'m Peter Parker');
