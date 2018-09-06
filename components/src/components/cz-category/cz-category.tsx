@@ -1,19 +1,19 @@
 import { Component, Prop } from '@stencil/core';
 
 @Component({
-  tag: 'cz-card',
-  styleUrl: 'cz-card.css',
+  tag: 'cz-category',
+  styleUrl: 'cz-category.scss',
   shadow: true
 })
-export class Card {
+export class Category {
 
   @Prop() first: string;
-  @Prop() last: string;
+  @Prop() name: string;
 
   render() {
     return (
-      <div>
-        Hello, World! I'm {this.first} {this.last}
+      <div class="category-card">
+        {this.name}
       </div>
     );
   }

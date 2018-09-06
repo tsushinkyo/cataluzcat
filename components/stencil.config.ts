@@ -1,4 +1,5 @@
 import { Config } from '@stencil/core';
+import { sass } from '@stencil/sass';
 
 export const config: Config = {
   namespace: 'components',
@@ -12,4 +13,7 @@ export const config: Config = {
     }
   ],
   excludeSrc: [],
+  plugins: [
+    sass()
+  ]
 };

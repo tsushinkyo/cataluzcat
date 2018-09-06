@@ -1,18 +1,18 @@
-import { TestWindow } from '@stencil/core/testing';
-import { MyComponent } from './cz-card';
+import { TestWindow } from '@stencil/core/dist/testing';
+import { Card } from './cz-card';
 
 describe('cz-card', () => {
   it('should build', () => {
-    expect(new MyComponent()).toBeTruthy();
+    expect(new Card()).toBeTruthy();
   });
 
   describe('rendering', () => {
-    let element: HTMLMyComponentElement;
+    let element: HTMLCzCardElement;
     let testWindow: TestWindow;
     beforeEach(async () => {
       testWindow = new TestWindow();
       element = await testWindow.load({
-        components: [MyComponent],
+        components: [Card],
         html: '<cz-card></cz-card>'
       });
     });

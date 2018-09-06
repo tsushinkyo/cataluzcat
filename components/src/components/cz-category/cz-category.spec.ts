@@ -1,19 +1,19 @@
-import { TestWindow } from '@stencil/core/testing';
-import { MyComponent } from './my-component';
+import { TestWindow } from '@stencil/core/dist/testing';
+import {  Category } from './cz-category';
 
-describe('my-component', () => {
+describe('cz-category', () => {
   it('should build', () => {
-    expect(new MyComponent()).toBeTruthy();
+    expect(new Category()).toBeTruthy();
   });
 
   describe('rendering', () => {
-    let element: HTMLMyComponentElement;
+    let element: HTMLCzCategoryElement;
     let testWindow: TestWindow;
     beforeEach(async () => {
       testWindow = new TestWindow();
       element = await testWindow.load({
-        components: [MyComponent],
-        html: '<my-component></my-component>'
+        components: [Category],
+        html: '<cz-category></cz-category>'
       });
     });
 
@@ -28,14 +28,14 @@ describe('my-component', () => {
     });
 
     it('should work with a last name', async () => {
-      element.last = 'Parker';
+      element.name = 'Parker';
       await testWindow.flush();
       expect(element.textContent.trim()).toEqual('Hello, World! I\'m  Parker');
     });
 
     it('should work with both a first and a last name', async () => {
       element.first = 'Peter';
-      element.last = 'Parker';
+      element.name = 'Parker';
       await testWindow.flush();
       expect(element.textContent.trim()).toEqual('Hello, World! I\'m Peter Parker');
     });
