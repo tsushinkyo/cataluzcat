@@ -1,7 +1,7 @@
 import { Config } from '@stencil/core';
 
 export const config: Config = {
-  namespace: 'mycomponent',
+  namespace: 'components',
   outputTargets:[
     {
       type: 'dist'
@@ -10,5 +10,6 @@ export const config: Config = {
       type: 'www',
       serviceWorker: null
     }
-  ]
+  ],
+  excludeSrc: [],
 };
