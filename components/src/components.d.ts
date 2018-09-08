@@ -38,6 +38,11 @@ declare global {
       'image': string;
       'name': string;
     }
+
+    interface CzPoemCard {
+      'image': string;
+      'title': string;
+    }
   }
 
 
@@ -65,12 +70,21 @@ declare global {
     };
     
 
+    interface HTMLCzPoemCardElement extends StencilComponents.CzPoemCard, HTMLStencilElement {}
+
+    var HTMLCzPoemCardElement: {
+      prototype: HTMLCzPoemCardElement;
+      new (): HTMLCzPoemCardElement;
+    };
+    
+
   namespace JSX {
     interface Element {}
     export interface IntrinsicElements {
     'cz-card': JSXElements.CzCardAttributes;
     'cz-category-container': JSXElements.CzCategoryContainerAttributes;
     'cz-category': JSXElements.CzCategoryAttributes;
+    'cz-poem-card': JSXElements.CzPoemCardAttributes;
     }
   }
 
@@ -90,18 +104,25 @@ declare global {
       'image'?: string;
       'name'?: string;
     }
+
+    export interface CzPoemCardAttributes extends HTMLAttributes {
+      'image'?: string;
+      'title'?: string;
+    }
   }
 
   interface HTMLElementTagNameMap {
     'cz-card': HTMLCzCardElement
     'cz-category-container': HTMLCzCategoryContainerElement
     'cz-category': HTMLCzCategoryElement
+    'cz-poem-card': HTMLCzPoemCardElement
   }
 
   interface ElementTagNameMap {
     'cz-card': HTMLCzCardElement;
     'cz-category-container': HTMLCzCategoryContainerElement;
     'cz-category': HTMLCzCategoryElement;
+    'cz-poem-card': HTMLCzPoemCardElement;
   }
 }
 declare global { namespace JSX { interface StencilJSX {} } }

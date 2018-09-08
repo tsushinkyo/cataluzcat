@@ -1,0 +1,17 @@
+
+::host {
+    background-color: blue;
+}
+.poem-card {
+    border-width: 1px;
+    border-style: solid;
+    width: 880px;
+    text-align: center; 
+    .title {
+        font-size: 50px;
+        margin: 20px;
+    }
+    .image {
+        width: 800px;
+    }
+}
