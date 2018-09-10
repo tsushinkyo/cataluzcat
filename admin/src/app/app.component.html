@@ -1,1 +1,26 @@
-<cz-card first="Stencil" last="'Don't call me a framework' JS"></cz-card>
+<mat-toolbar color="primary">
+  <span id="tittle">Cataluz.cat</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon class="example-icon">menu</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="over" #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
+    <div class="abcde">
+      <mat-nav-list>
+        <mat-list-item>
+          <h4>Secciones</h4>
+        </mat-list-item>
+        <mat-list-item> Nuevo escrito </mat-list-item>
+        <mat-list-item> Etiquetas </mat-list-item>
+      </mat-nav-list>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content class="content">
+    <cz-card first="Stencil" last="'Don't call me a framework' JS"></cz-card>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
