@@ -10,7 +10,11 @@ export const config: Config = {
     {
       type: 'www',
       serviceWorker: null
-    }
+    },
+    {
+      type: 'dist',
+      buildDir: '../../admin/src/components'
+    },
   ],
   excludeSrc: [],
   plugins: [
