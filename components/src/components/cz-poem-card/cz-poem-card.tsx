@@ -19,6 +19,7 @@ export class PoemCard {
         <div>
           <img class="image" src={this.image} />
         </div>
+        <slot />
       </div>
     );
   }

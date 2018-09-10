@@ -39,6 +39,10 @@ declare global {
       'name': string;
     }
 
+    interface CzChip {
+      'text': string;
+    }
+
     interface CzPoemCard {
       'image': string;
       'title': string;
@@ -70,6 +74,14 @@ declare global {
     };
     
 
+    interface HTMLCzChipElement extends StencilComponents.CzChip, HTMLStencilElement {}
+
+    var HTMLCzChipElement: {
+      prototype: HTMLCzChipElement;
+      new (): HTMLCzChipElement;
+    };
+    
+
     interface HTMLCzPoemCardElement extends StencilComponents.CzPoemCard, HTMLStencilElement {}
 
     var HTMLCzPoemCardElement: {
@@ -84,6 +96,7 @@ declare global {
     'cz-card': JSXElements.CzCardAttributes;
     'cz-category-container': JSXElements.CzCategoryContainerAttributes;
     'cz-category': JSXElements.CzCategoryAttributes;
+    'cz-chip': JSXElements.CzChipAttributes;
     'cz-poem-card': JSXElements.CzPoemCardAttributes;
     }
   }
@@ -105,6 +118,10 @@ declare global {
       'name'?: string;
     }
 
+    export interface CzChipAttributes extends HTMLAttributes {
+      'text'?: string;
+    }
+
     export interface CzPoemCardAttributes extends HTMLAttributes {
       'image'?: string;
       'title'?: string;
@@ -115,6 +132,7 @@ declare global {
     'cz-card': HTMLCzCardElement
     'cz-category-container': HTMLCzCategoryContainerElement
     'cz-category': HTMLCzCategoryElement
+    'cz-chip': HTMLCzChipElement
     'cz-poem-card': HTMLCzPoemCardElement
   }
 
@@ -122,6 +140,7 @@ declare global {
     'cz-card': HTMLCzCardElement;
     'cz-category-container': HTMLCzCategoryContainerElement;
     'cz-category': HTMLCzCategoryElement;
+    'cz-chip': HTMLCzChipElement;
     'cz-poem-card': HTMLCzPoemCardElement;
   }
 }
