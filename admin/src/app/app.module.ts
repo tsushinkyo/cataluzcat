@@ -13,18 +13,12 @@ import {
   MatToolbarModule,
 } from '@angular/material';
 
-const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent },
-  {
-    path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
-];
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
