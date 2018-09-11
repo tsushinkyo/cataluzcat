@@ -1,38 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-
-
-const POEMS = [
-{
-  title: 'Primer poema',
-  image: 'https://steemitimages.com/0x0/https://cdn.steemitimages.com/DQmQKXjYZDgC47onwiw5ioQFU1Ssym3FXSs9Qhfkr3Ztj3M/superar-el-miedo-e1528344780641%20(1).jpg',
-  date: '1/1/2018',
-  chips : ['vivencias', 'experiencias'],
-}
-];
-
-interface Poem {
-  title: string;
-  image: string;
-  date: string;
-  chips: string[];
-}
-
+import { Poem, PoemsService } from '../poems.service';
 
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  providers: [PoemsService]
 })
 
 export class HomeComponent implements OnInit {
 
   poems: Poem[];
 
-  constructor() { }
+  constructor(
+    private poemsService: PoemsService
+  ) { }
 
   ngOnInit() {
-    this.poems = POEMS;
+    this.poemsService.getPoems().subscribe((data: Poem[]) => this.poems = data );
+
   }
 
 }
