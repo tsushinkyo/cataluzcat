@@ -1,5 +1,7 @@
-
-<cz-poem-card title="primer poema" image="https://steemitimages.com/0x0/https://cdn.steemitimages.com/DQmQKXjYZDgC47onwiw5ioQFU1Ssym3FXSs9Qhfkr3Ztj3M/superar-el-miedo-e1528344780641%20(1).jpg"></cz-poem-card>
-<cz-poem-card title="primer poema" image="https://steemitimages.com/0x0/https://cdn.steemitimages.com/DQmQKXjYZDgC47onwiw5ioQFU1Ssym3FXSs9Qhfkr3Ztj3M/superar-el-miedo-e1528344780641%20(1).jpg"></cz-poem-card>
-<cz-poem-card title="primer poema" image="https://steemitimages.com/0x0/https://cdn.steemitimages.com/DQmQKXjYZDgC47onwiw5ioQFU1Ssym3FXSs9Qhfkr3Ztj3M/superar-el-miedo-e1528344780641%20(1).jpg"></cz-poem-card>
-<cz-poem-card title="primer poema" image="https://steemitimages.com/0x0/https://cdn.steemitimages.com/DQmQKXjYZDgC47onwiw5ioQFU1Ssym3FXSs9Qhfkr3Ztj3M/superar-el-miedo-e1528344780641%20(1).jpg"></cz-poem-card>
+<div class="home-container">
+    <div  *ngFor="let poem of poems">
+            <cz-poem-card [title]="poem.title" [image]="poem.image" > 
+                    <cz-chip  *ngFor="let chip of poem.chips; let i = index" [text]="poem.chips[i]"></cz-chip>
+            </cz-poem-card>
+    </div>
+</div>

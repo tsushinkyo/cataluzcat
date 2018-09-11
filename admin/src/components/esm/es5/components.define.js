@@ -4,6 +4,7 @@ import {
   Card,
   Category,
   CategoryContainer,
+  PoemCard,
   PoemCard
 } from './components.components.js';
 
@@ -12,6 +13,7 @@ export function defineCustomElements(window, opts) {
     Card,
     Category,
     CategoryContainer,
+    PoemCard,
     PoemCard
   ], opts);
 }

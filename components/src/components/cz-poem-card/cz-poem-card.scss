@@ -8,7 +8,9 @@
     transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
     display: block;
     position: relative;
-    padding: 24px;
+    padding: 40px 20px 80px 20px;
+    margin-top: 80px;
+
     border-radius: 2px;
     background: #fff;
     color: rgba(0,0,0,.87);
@@ -27,5 +29,15 @@
     }
     .image {
         max-width: 70%;
+    }
+    .chip-container {
+        margin-top: 20px;
+        float: left;
+    }
+    .date {
+        float: right;
+        color: grey;
+        position: relative;
+        bottom: -28px;
     }
 }
