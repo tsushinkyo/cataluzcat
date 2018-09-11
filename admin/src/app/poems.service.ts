@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from '../../node_modules/rxjs';
 
   export interface Poem {
     title: string;
@@ -22,7 +23,7 @@ export class PoemsService {
   ) {
    }
 
-  getPoems() {
-    return this.http.get(this.poemsUrl);
+  getPoems(): Observable<Array<Poem>>  {
+    return this.http.get<Array<Poem>>(this.poemsUrl);
   }
 }
