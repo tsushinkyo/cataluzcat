@@ -1,0 +1,24 @@
+.example-full-width {
+    width: 100%;
+  }
+
+.new-poem-container {
+    padding-top: 50px;
+    max-width: 800px;
+    text-align: center; 
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    .button-row button,
+    .button-row a {
+        margin-right: 8px;
+}
+}
+.preview-container {
+    padding-top: 50px;
+    max-width: 800px;
+    text-align: center; 
+    display: block;
+    position: relative;
+    margin: 0 auto;
+}

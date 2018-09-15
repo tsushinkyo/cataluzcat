@@ -1,0 +1,49 @@
+<div class="new-poem-container">
+<mat-card>
+  <mat-card-content>
+    <div>
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Titulo" [(ngModel)]="poem.title">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Url de la imagen" [(ngModel)]="poem.image">
+          </mat-form-field>
+      </div>
+    <div>
+        <mat-form-field class="example-full-width">
+          <textarea matInput 
+          placeholder="Introduce el texto"
+          cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+          cdkAutosizeMinRows="2"
+          [(ngModel)]="poem.poemText"
+          ></textarea>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Etiquetas">
+          </mat-form-field>
+      </div>
+      <div class="button-row">
+        <button type="submit" mat-stroked-button color="primary" (click)="newPoem()">Restablecer</button>
+        <button type="submit" mat-raised-button color="primary" (click)="submit()">Enviar</button>
+        <button type="submit" mat-raised-button color="primary" (click)="consolePoem()">Enviar</button>
+      </div>
+</mat-card-content>
+</mat-card>
+</div>
+<div class="preview-container">
+    <mat-card>
+      <mat-card-header>
+        Previsualización
+      </mat-card-header>
+      <mat-content>
+          <cz-poem-card [title]="poem.title" [image]="poem.image" [poemText]="poem.poemText" [date]="poem.date.toLocaleDateString()">
+              <cz-chip  *ngFor="let chip of poem.chips; let i = index" [text]="poem.chips[i]"></cz-chip>
+          </cz-poem-card>
+      </mat-content>
+    </mat-card>
+
+</div>

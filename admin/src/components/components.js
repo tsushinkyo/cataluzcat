@@ -1,6 +1,6 @@
 /*!
  * Built with http://stenciljs.com
- * 2018-08-11T12:55:57
+ * 2018-08-15T14:17:21
  */
 (function(win, doc, namespace, fsNamespace, resourcesUrl, appCore, appCoreSsr, appCorePolyfilled, hydratedCssClass, components) {
 
@@ -135,4 +135,4 @@ function createComponentOnReadyPrototype(win, namespace, HTMLElementPrototype) {
 
   init(win, doc, namespace, fsNamespace, resourcesUrl, appCore, appCoreSsr, appCorePolyfilled, hydratedCssClass, components);
 
-  })(window, document, "components","components",0,"components.core.js","es5-build-disabled.js","hydrated",[["cz-card","cz-card",1,[["first",1,0,1,2],["last",1,0,1,2]],1],["cz-category","cz-category",1,[["image",1,0,1,2],["name",1,0,1,2]],1],["cz-category-container","cz-category-container",1,[["image",1,0,1,2],["name",1,0,1,2]],1],["cz-chip","cz-chip",1,[["text",1,0,1,2]],1],["cz-poem-card","cz-poem-card",1,[["date",1,0,1,2],["image",1,0,1,2],["title",1,0,1,2]],1]],HTMLElement.prototype);
+  })(window, document, "components","components",0,"components.core.js","es5-build-disabled.js","hydrated",[["cz-card","cz-card",1,[["first",1,0,1,2],["last",1,0,1,2]],1],["cz-category","cz-category",1,[["image",1,0,1,2],["name",1,0,1,2]],1],["cz-category-container","cz-category-container",1,[["image",1,0,1,2],["name",1,0,1,2]],1],["cz-chip","cz-chip",1,[["text",1,0,1,2]],1],["cz-poem-card","cz-poem-card",1,[["date",1,0,1,2],["image",1,0,1,2],["poemText",1,0,"poem-text",2],["title",1,0,1,2]],1]],HTMLElement.prototype);

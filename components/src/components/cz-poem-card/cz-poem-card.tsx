@@ -9,6 +9,7 @@ export class PoemCard {
 
   @Prop() title: string = '';
   @Prop() image: string = '';
+  @Prop() poemText: string = '';
   @Prop() date: string = '10/12/12';
 
   render() {
@@ -19,6 +20,9 @@ export class PoemCard {
         </div>
         <div>
           <img class="image" src={this.image} />
+        </div>
+        <div class ="poem-content">
+          {this.poemText}
         </div>
         <div class="chip-container">
           <slot />

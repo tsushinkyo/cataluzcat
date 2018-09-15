@@ -1,6 +1,11 @@
 <mat-toolbar color="primary" class="navbar">
   <span id="tittle">Cataluz.cat</span>
   <span class="example-spacer"></span>
+  <a routerLink="/home" routerLinkActive="active" (click)="sidenav.close()">
+    <button mat-icon-button>
+        <mat-icon class="example-icon">home</mat-icon>
+    </button>
+  </a>
   <button mat-icon-button (click)="sidenav.toggle()">
     <mat-icon class="example-icon">menu</mat-icon>
   </button>
@@ -12,13 +17,13 @@
         <mat-list-item>
           <h4>Secciones</h4>
         </mat-list-item>
-        <mat-list-item> Nuevo escrito </mat-list-item>
+        <a routerLink="/new" routerLinkActive="active" (click)="sidenav.close()"><mat-list-item> Nuevo escrito </mat-list-item></a>
         <mat-list-item> Etiquetas </mat-list-item>
       </mat-nav-list>
     </div>
   </mat-sidenav>
   <mat-sidenav-content class="content">
-    <app-home></app-home>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
 
