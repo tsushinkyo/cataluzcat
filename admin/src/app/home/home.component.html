@@ -1,7 +1,7 @@
 <div class="home-container">
     <div  *ngFor="let poem of poems">
-            <cz-poem-card [title]="poem.title" [image]="poem.image" > 
-                    <cz-chip  *ngFor="let chip of poem.chips; let i = index" [text]="poem.chips[i]"></cz-chip>
-            </cz-poem-card>
+        <cz-poem-card [title]="poem.title" [image]="poem.image" [date]="poem.date" > 
+        <!--    <cz-chip  *ngFor="let chip of poem.chips; let i = index" [text]="poem.chips[i]"></cz-chip>-->
+        </cz-poem-card>
     </div>
 </div>

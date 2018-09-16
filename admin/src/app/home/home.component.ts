@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Poem, PoemsService } from '../poems.service';
-
+import { PoemsService } from '../poems.service';
+import { Poem } from '../poem';
 
 @Component({
   selector: 'app-home',
@@ -18,8 +18,10 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.poemsService.getPoems().subscribe((data: Poem[]) => this.poems = data );
-
+    this.poemsService.getPoems().subscribe((data: Poem[]) => {
+    console.log(data);
+    this.poems = data;
+  });
   }
 
 }
