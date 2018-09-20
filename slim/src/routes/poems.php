@@ -27,4 +27,32 @@ $app->get('/api/poems', function(Request $request, Response $response) {
         return '{"error": {"text": '.$e->getMessage().'}';
     }
 });
+
+//Get all poems
+$app->posrt('/api/poems', function(Request $request, Response $response) {
+    
+    $data = $request->getParsedBody();
+    
+    $query = "INSERT INTO poems (tile,image) VALUES (?,?)";
+    
+    $title = $request->getParsedBody()['title'];
+    $image = $request->getParsedBody()['image'];
+
+    try{
+        //instance bbdd
+        $db = new db();
+
+        //connection
+        $db = $db->connect();
+        $execute = $db->query($query);
+        $result = $execute();
+        $db = null;
+
+        //export in JSON
+        return json_encode($result);
+
+    } catch(PDOException $e) {
+        return '{"error": {"text": '.$e->getMessage().'}';
+    }
+});
 ?>
