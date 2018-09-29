@@ -623,7 +623,15 @@ function createDomApi(App, win, doc) {
   domApi.$dispatchEvent = function(elm, eventName, data) {
     return elm && elm.dispatchEvent(new win.CustomEvent(eventName, data));
   };
-  false, false;
+  true;
+  // test if this browser supports event options or not
+  try {
+    win.addEventListener('e', null, Object.defineProperty({}, 'passive', {
+      get: function() {
+        return domApi.$supportsEventOptions = true;
+      }
+    }));
+  } catch (e) {}
   domApi.$parentElement = function(elm, parentNode) {
     // if the parent node is a document fragment (shadow root)
     // then use the "host" property on it
@@ -704,6 +712,24 @@ function parsePropertyValue(propType, propValue) {
     return propValue;
 }
 
+function initEventEmitters(plt, cmpEvents, instance) {
+  if (cmpEvents) {
+    var elm_1 = plt.hostElementMap.get(instance);
+    cmpEvents.forEach(function(eventMeta) {
+      instance[eventMeta.method] = {
+        emit: function(data) {
+          plt.emitEvent(elm_1, eventMeta.name, {
+            bubbles: eventMeta.bubbles,
+            composed: eventMeta.composed,
+            cancelable: eventMeta.cancelable,
+            detail: data
+          });
+        }
+      };
+    });
+  }
+}
+
 function proxyComponentInstance(plt, cmpConstructor, elm, instance, hostSnapshot, properties, memberName) {
   // at this point we've got a specific node of a host element, and created a component class instance
   // and we've already created getters/setters on both the host element and component class prototypes
@@ -739,7 +765,10 @@ function initComponentInstance(plt, elm, hostSnapshot, instance, componentConstr
     // let's upgrade the data on the host element
     // and let the getters/setters do their jobs
         proxyComponentInstance(plt, componentConstructor, elm, instance, hostSnapshot);
-    false;
+    true;
+    // add each of the event emitters which wire up instance methods
+    // to fire off dom events from the host element
+    initEventEmitters(plt, componentConstructor.events, instance);
     false;
   } catch (e) {
     // something done went wrong trying to create a component instance
@@ -2288,7 +2317,10 @@ function createPlatformMain(namespace, Context, win, doc, resourcesUrl, hydrated
   Context.document = doc;
   Context.resourcesUrl = Context.publicPath = resourcesUrl;
   false;
-  false;
+  true;
+  Context.emit = function(elm, eventName, data) {
+    return domApi.$dispatchEvent(elm, Context.eventNameFn ? Context.eventNameFn(eventName) : eventName, data);
+  };
   // add the h() fn to the app's global namespace
   App.h = h;
   App.Context = Context;

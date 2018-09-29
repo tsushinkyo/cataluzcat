@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from '../../node_modules/rxjs';
 import { map } from 'rxjs/operators';
 import { Poem } from './poem';
@@ -22,11 +22,16 @@ export class PoemsService {
     return this.http.get('http://localhost/api/poems') as Observable<Poem[]>;
   }
 
-  getPoemsDummy(): Observable<Array<Poem>>  {
-    return this.http.get<Array<Poem>>(this.poemsUrl);
+  getPoemDetails(id: number): Observable<Poem[]> {
+    return this.http.get('http://localhost/api/poems/' + id) as Observable<Poem[]>;
   }
 
   savePoem(poem: Poem) {
-    this.poems.unshift(poem);
+    if ( this.poems && this.poems.length ) {
+      this.poems.unshift(poem);
+    }
+
+
+    return this.http.post('http://localhost/api/poems/add', JSON.stringify(poem));
   }
 }

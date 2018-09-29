@@ -8,4 +8,4 @@ export var CategoryContainer = ["cz-category-container",function(o){return(o.sco
 
 export var PoemCard = ["cz-chip",function(o){return(o.scoped?import("./cz-chip.sc.js"):import("./cz-chip.js")).then(function(m){return m.CzChip})},1,[["text",1,0,1,2]],1];
 
-export var PoemCard = ["cz-poem-card",function(o){return(o.scoped?import("./cz-poem-card.sc.js"):import("./cz-poem-card.js")).then(function(m){return m.CzPoemCard})},1,[["date",1,0,1,2],["image",1,0,1,2],["poemText",1,0,"poem-text",2],["title",1,0,1,2]],1];
+export var PoemCard = ["cz-poem-card",function(o){return(o.scoped?import("./cz-poem-card.sc.js"):import("./cz-poem-card.js")).then(function(m){return m.CzPoemCard})},1,[["date",1,0,1,2],["image",1,0,1,2],["poemId",1,0,"poem-id",4],["poemText",1,0,"poem-text",2],["title",1,0,1,2]],1];

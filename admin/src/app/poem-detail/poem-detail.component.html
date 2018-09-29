@@ -1,0 +1,9 @@
+<div class="poem-detail-container">
+  <mat-card *ngIf="poem">
+    <mat-content>
+      <cz-poem-card [title]="poem.title" [image]="poem.image" [poemText]="poem.poemText" [date]="poem.date.toLocaleDateString()">
+        <cz-chip *ngFor="let chip of poem.chips; let i = index" [text]="poem.chips[i]"></cz-chip>
+      </cz-poem-card>
+    </mat-content>
+  </mat-card>
+</div>

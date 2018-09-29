@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Poem } from '../poem';
 import { PoemsService } from '../poems.service';
@@ -11,6 +11,7 @@ import { PoemsService } from '../poems.service';
 })
 export class NewPoemComponent implements OnInit {
 
+  @ViewChild('fileInput') fileInput;
   poem: Poem;
 
   constructor(
@@ -30,9 +31,36 @@ export class NewPoemComponent implements OnInit {
       this.poem.chips = [];
     }
   }
-  onSubmit() {
-    console.log('sbumit!');
-    // this.poemsService.savePoem(this.poem);
-    this.router.navigate(['/home']);
+
+  previewImage($event) {
+    console.log($event);
+    this.getBase64(this.fileInput.nativeElement.files[0]).then(
+      (image: string) => {
+        this.poem.image = image;
+      },
+      (error) => {
+        console.log(error);
+      });
+  }
+
+  getBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function () {
+        resolve(reader.result);
+      };
+      reader.onerror = function (error) {
+        reject(error);
+      };
+    });
+ }
+  submitForm($event) {
+    this.poemsService.savePoem(this.poem).subscribe( (res) => {
+      this.router.navigate(['/home']);
+    },
+    (err) => {
+      console.log(err);
+    });
   }
 }

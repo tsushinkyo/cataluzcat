@@ -15,7 +15,6 @@ export class PoemCard {
   @Event() titleClicked$: EventEmitter;
 
   titleClickedHandler = () => {
-    console.log('a');
     this.titleClicked$.emit(this.poemId);
   }
 

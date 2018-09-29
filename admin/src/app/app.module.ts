@@ -21,10 +21,12 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
 import { NewPoemComponent } from './new-poem/new-poem.component';
 import { FormsModule } from '../../node_modules/@angular/forms';
+import { PoemDetailComponent } from './poem-detail/poem-detail.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'new', component: NewPoemComponent },
+  { path: 'poem-detail/:id', component: PoemDetailComponent },
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full'
@@ -36,7 +38,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    NewPoemComponent
+    NewPoemComponent,
+    PoemDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,7 @@ const appRoutes: Routes = [
     MatSidenavModule,
     MatCheckboxModule,
     MatButtonModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
   ],
   providers: [],
   schemas: [
