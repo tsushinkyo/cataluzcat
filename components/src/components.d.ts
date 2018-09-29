@@ -46,6 +46,7 @@ declare global {
     interface CzPoemCard {
       'date': string;
       'image': string;
+      'poemId': number;
       'poemText': string;
       'title': string;
     }
@@ -127,6 +128,8 @@ declare global {
     export interface CzPoemCardAttributes extends HTMLAttributes {
       'date'?: string;
       'image'?: string;
+      'onTitleClicked$'?: (event: CustomEvent) => void;
+      'poemId'?: number;
       'poemText'?: string;
       'title'?: string;
     }
